@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center justify-between px-6 py-4 shadow-sm">
+      <nav className="flex items-center justify-evenly px-6 py-4 shadow-sm">
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-pink-700"
@@ -58,6 +58,7 @@ export default function Navbar() {
         </button>
 
         {/* Logo */}
+
         <div className="flex items-center gap-2">
           <img src="/images/logo.png" alt="Logo" className="w-10 h-10" />
 
@@ -68,7 +69,10 @@ export default function Navbar() {
         <DesktopMenu />
 
         {/* Cart */}
-        <button className="text-pink-700 hover:cursor-pointer hover:text-pink-800" onClick={() => setIsCartOpen(true)}>
+        <button
+          className="text-pink-700 hover:cursor-pointer hover:text-pink-800"
+          onClick={() => setIsCartOpen(true)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

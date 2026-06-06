@@ -1,6 +1,6 @@
+import { NavLink } from "react-router-dom";
 export default function DesktopMenu() {
   const links = ["Home", "Cakes", "About", "Contact"];
-
   return (
     <ul className="hidden md:flex items-center gap-8">
       {links.map((link) => (
