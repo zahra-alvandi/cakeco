@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'kalam-bold';
-  src: url('../public/fonts/Kalam-Bold.ttf') format('ttf');
-  font-weight: 400;
-  font-style: italic;
+  font-family: 'kalam';
+  src: url('../public/fonts/Kalam-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: norma;
 }
 
 @font-face {
-  font-family: 'kalam-light';
-  src: url('../public/fonts/Kalam-Light.ttf') format('ttf');
-  font-weight: 400;
-  font-style: italic; 
+  font-family: 'kalam';
+  src: url('../public/fonts/Kalam-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: norma; 
 }
 @font-face {
-  font-family: 'kalam-regular';
-  src: url('../public/fonts/Kalam-Regular.ttf') format('ttf');
-  font-weight: 400;
-  font-style: italic; 
+  font-family: 'kalam';
+  src: url('../public/fonts/Kalam-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: norma; 
 }

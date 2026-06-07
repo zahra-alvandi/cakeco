@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar/Navbar";
 
-// import Home from "./Pages/Home";
+import Home from "./Pages/Home";
 // import Cakes from "./Pages/Cakes";
 // import About from "./Pages/About";
 // import Contact from "./Pages/Contact";
@@ -14,8 +14,8 @@ function App() {
       <Navbar />
 
       <Routes>
-        {/* <Route path="/" element={<Home />} />
-        <Route path="/cakes" element={<Cakes />} />
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/cakes" element={<Cakes />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} /> */}
         <Route path="/login" element={<Login />} />
