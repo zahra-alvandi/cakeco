@@ -63,7 +63,12 @@ export default function Navbar() {
           <img src="/images/logo.png" alt="Logo" className="w-10 h-10" />
 
           <div className="flex flex-col items-start">
-            <span className="text-xl text-pink-500">Sweet Delights</span>
+            <span
+              className="text-xl text-pink-500"
+              style={{ fontFamily: "pacifico" }}
+            >
+              Sweet Delights
+            </span>
 
             <span className="text-[10px] uppercase tracking-wider text-gray-500">
               Cakes & Drinks

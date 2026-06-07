@@ -1,10 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { navLinks } from "./navLinks";
 
-export default function MobileSidebar({
-  isOpen,
-  onClose,
-}) {
+export default function MobileSidebar({ isOpen, onClose }) {
   return (
     <>
       <div
@@ -12,11 +9,7 @@ export default function MobileSidebar({
         className={`
           fixed inset-0 bg-black/40 z-40
           transition-opacity duration-300 md:hidden
-          ${
-            isOpen
-              ? "opacity-100 visible"
-              : "opacity-0 invisible"
-          }
+          ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}
         `}
       />
 
@@ -26,11 +19,7 @@ export default function MobileSidebar({
           shadow-lg md:hidden
           transition-transform duration-500
           ease-[cubic-bezier(0.32,0.72,0,1)]
-          ${
-            isOpen
-              ? "translate-x-0"
-              : "-translate-x-full"
-          }
+          ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
         <div className="p-5">

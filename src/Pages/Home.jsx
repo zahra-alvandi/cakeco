@@ -45,7 +45,10 @@ export default function Home() {
             <h2 className="text-pink-700 font-bold text-2xl md:text-4xl">
               Every Slice
             </h2>
-            <p className="text-xl md:text-3xl italic text-pink-600" style={{fontFamily: "myfont"}}>
+            <p
+              className="text-xl md:text-3xl text-pink-600"
+              style={{ fontFamily: "pacifico" }}
+            >
               brings happiness
             </p>
             <span className="text-[12px] md:text-sm text-gray-600">
