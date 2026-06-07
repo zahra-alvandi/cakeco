@@ -1,6 +1,10 @@
-export default function MobileSidebar({ isOpen, onClose }) {
-  const links = ["Home", "Cakes", "About", "Contact"];
+import { NavLink } from "react-router-dom";
+import { navLinks } from "./navLinks";
 
+export default function MobileSidebar({
+  isOpen,
+  onClose,
+}) {
   return (
     <>
       <div
@@ -30,22 +34,36 @@ export default function MobileSidebar({ isOpen, onClose }) {
         `}
       >
         <div className="p-5">
+          {/* Login */}
+
           <button
-            onClick={onClose}
-            className="mb-8 text-red-500"
+            className="
+              w-full mb-8
+              bg-pink-500
+              text-white
+              py-2
+              rounded-lg
+              hover:bg-pink-600
+              transition-colors
+            "
           >
-            بستن
+            Login / Register
           </button>
 
           <ul className="space-y-5">
-            {links.map((link) => (
-              <li key={link}>
-                <a
-                  href="#"
-                  className="block hover:text-pink-500"
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <NavLink
+                  to={link.path}
+                  onClick={onClose}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-pink-500 font-medium"
+                      : "hover:text-pink-500"
+                  }
                 >
-                  {link}
-                </a>
+                  {link.name}
+                </NavLink>
               </li>
             ))}
           </ul>

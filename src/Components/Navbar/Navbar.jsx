@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import DesktopMenu from "./DesktopMenu";
 import MobileSidebar from "./MobileSidebar";
 import CartDrawer from "./CartDrawer";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -35,7 +36,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex items-center justify-evenly px-6 py-4 shadow-sm">
+      <nav className="flex items-center justify-between px-6 py-4 shadow-sm">
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-pink-700"
@@ -45,49 +46,74 @@ export default function Navbar() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
-            class="size-6"
+            className="size-6"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
             />
           </svg>
         </button>
 
         {/* Logo */}
-
         <div className="flex items-center gap-2">
           <img src="/images/logo.png" alt="Logo" className="w-10 h-10" />
 
-          <span className="text-xl text-pink-500">Cake & Co.</span>
+          <div className="flex flex-col items-start">
+            <span className="text-xl text-pink-500">Sweet Delights</span>
+
+            <span className="text-[10px] uppercase tracking-wider text-gray-500">
+              Cakes & Drinks
+            </span>
+          </div>
         </div>
 
         {/* Desktop Menu */}
         <DesktopMenu />
 
-        {/* Cart */}
-        <button
-          className="text-pink-700 hover:cursor-pointer hover:text-pink-800"
-          onClick={() => setIsCartOpen(true)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
+        {/* Right Side */}
+        <div className="flex items-center gap-4">
+          {/* Desktop Login */}
+          <Link
+            to="/login"
+            className="
+    hidden md:block
+    px-4 py-2
+    border border-pink-500
+    rounded-lg
+    text-pink-500
+    hover:bg-pink-500
+    hover:text-white
+    transition-colors
+  "
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-            />
-          </svg>
-        </button>
+            Login
+          </Link>
+
+          {/* Cart */}
+          <button
+            className="text-pink-700 hover:text-pink-800 transition-colors"
+            onClick={() => setIsCartOpen(true)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+              />
+            </svg>
+          </button>
+        </div>
       </nav>
 
       <MobileSidebar
