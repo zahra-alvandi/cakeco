@@ -166,50 +166,47 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Categories */}
-        <div className="grid grid-cols-4 gap-3 overflow-x-auto pb-4 shadow-sm">
+        {/* category */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {categories.map((category) => (
             <Link
               key={category.id}
               to={`/category/${category.slug}`}
-              className="block"
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col"
             >
-              <img src={category.img} alt={category.title} />
-
-              <div className="my-2">
-                <p className="text-pink-700 font-bold">{category.title}</p>
-                <span className="text-sm">{category.text}</span>
+              {/* IMAGE */}
+              <div className="aspect-[4/4] w-full overflow-hidden">
+                <img
+                  src={category.img}
+                  alt={category.title}
+                  className="w-full h-full object-cover object-center hover:scale-105 transition duration-300"
+                />
               </div>
-              <div className="flex items-center justify-between text-sm">
-                <span>{category.price}</span>
-                <button className="flex items-center justify-between text-sm bg-pink-700 text-white px-2 py-1 rounded-md">
-                  <ShoppingCartIcon className="w-4 h-4"></ShoppingCartIcon>
-                  Add to cart
-                </button>
+
+              {/* CONTENT */}
+              <div className="p-2 flex flex-col gap-1">
+                <p className="text-pink-700 font-semibold text-sm">
+                  {category.title}
+                </p>
+
+                <span className="text-[11px] text-gray-600 line-clamp-2">
+                  {category.text}
+                </span>
+
+                <div className="flex items-center justify-between mt-1">
+                  <span className="text-xs font-medium text-gray-800">
+                    {category.price}
+                  </span>
+
+                  <button className="flex items-center gap-1 text-[10px] bg-pink-700 text-white px-2 py-1 rounded-md">
+                    <ShoppingCartIcon className="w-3 h-3" />
+                    Add
+                  </button>
+                </div>
               </div>
             </Link>
           ))}
         </div>
-
-        {/* Products */}
-        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition"
-            >
-              <img
-                src={product.img}
-                alt={product.title}
-                className="w-full h-40 object-cover"
-              />
-
-              <div className="p-3">
-                <p className="font-medium">{product.title}</p>
-              </div>
-            </div>
-          ))}
-        </div> */}
       </div>
     </div>
   );
