@@ -1,9 +1,48 @@
 import { useEffect, useState } from "react";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {
+  MagnifyingGlassIcon,
+  ShoppingCartIcon,
+} from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+
+  const categories = [
+    {
+      id: 1,
+      title: "Cheesecakes",
+      img: "/images/cheesecake.webp",
+      price: "$5.49",
+      slug: "cheesecakes",
+      text: "Creamy cheesecake with strawberry topping",
+    },
+    {
+      id: 2,
+      title: "Chocolate Cakes",
+      img: "/images/chocolatecake.webp",
+      price: "$4.99",
+      slug: "chocolate-cakes",
+      text: "Rich chocolate cake with chocolate ganache",
+    },
+    {
+      id: 3,
+      title: "Hot Drinks",
+      img: "/images/hotdrink.webp",
+      price: "$3.49",
+      slug: "hot-drinks",
+      text: "Smooth espersso with streamed milk",
+    },
+    {
+      id: 4,
+      title: "Cold Drinks",
+      img: "/images/icedrink.webp",
+      price: "$3.49",
+      slug: "cold-drinks",
+      text: "Chilled coffee over ice with a smooth finish",
+    },
+  ];
 
   const slides = [
     "/images/mobileBanner.png",
@@ -36,7 +75,7 @@ export default function Home() {
 
       {/* SLIDER */}
       <div
-        className="relative mt-6 rounded-2xl overflow-hidden h-56 md:h-72"
+        className="relative mt-6 rounded-2xl overflow-hidden h-56 md:h-[420px] lg:h-[520px]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -110,6 +149,67 @@ export default function Home() {
         >
           ›
         </button>
+      </div>
+
+      {/* Shop by category */}
+      <div className="mt-10">
+        <div className="flex items-center justify-between mb-4">
+          <h3
+            className="text-xl text-pink-700"
+            style={{ fontFamily: "pacifico" }}
+          >
+            Shop by category
+          </h3>
+
+          <a href="#" className="text-pink-600 hover:text-pink-700">
+            View all
+          </a>
+        </div>
+
+        {/* Categories */}
+        <div className="grid grid-cols-4 gap-3 overflow-x-auto pb-4 shadow-sm">
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              to={`/category/${category.slug}`}
+              className="block"
+            >
+              <img src={category.img} alt={category.title} />
+
+              <div className="my-2">
+                <p className="text-pink-700 font-bold">{category.title}</p>
+                <span className="text-sm">{category.text}</span>
+              </div>
+              <div className="flex items-center justify-between text-sm">
+                <span>{category.price}</span>
+                <button className="flex items-center justify-between text-sm bg-pink-700 text-white px-2 py-1 rounded-md">
+                  <ShoppingCartIcon className="w-4 h-4"></ShoppingCartIcon>
+                  Add to cart
+                </button>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Products */}
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+          {filteredProducts.map((product) => (
+            <div
+              key={product.id}
+              className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition"
+            >
+              <img
+                src={product.img}
+                alt={product.title}
+                className="w-full h-40 object-cover"
+              />
+
+              <div className="p-3">
+                <p className="font-medium">{product.title}</p>
+              </div>
+            </div>
+          ))}
+        </div> */}
       </div>
     </div>
   );
