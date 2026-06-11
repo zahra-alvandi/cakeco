@@ -2,7 +2,7 @@ import { HomeIcon, HeartIcon, UserIcon } from "@heroicons/react/24/outline";
 
 export default function MobileFooter() {
   return (
-    <div className="mt-10">
+    <div className="mt-10 sticky">
       <svg className="hidden">
         <symbol
           id="layoutGrid"
