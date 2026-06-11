@@ -69,7 +69,7 @@ export default function Home() {
   }, [paused, slides.length]);
 
   return (
-    <div className="container mx-auto px-4 my-4">
+    <div className="container mx-auto px-4 my-4 pb-20 md:pb-0">
       {/* SEARCH */}
       <div className="flex items-center justify-between rounded-xl px-3 py-3 bg-pink-100/70">
         <input
@@ -173,7 +173,7 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5 md:mt-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-5 md:mt-10">
           {categories.map((category) => (
             <Link
               key={category.id}

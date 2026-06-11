@@ -1,21 +1,23 @@
-import { HomeIcon, HeartIcon, UserIcon } from "@heroicons/react/24/outline";
+import {
+  HomeIcon,
+  HeartIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
 
 export default function MobileFooter() {
   return (
-    <div className="mt-10 sticky">
+    <div className="fixed bottom-0 left-0 w-full md:hidden z-50">
       <svg className="hidden">
         <symbol
           id="layoutGrid"
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-layout-grid-icon lucide-layout-grid"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
           <rect width="7" height="7" x="3" y="3" rx="1" />
           <rect width="7" height="7" x="14" y="3" rx="1" />
@@ -23,25 +25,57 @@ export default function MobileFooter() {
           <rect width="7" height="7" x="3" y="14" rx="1" />
         </symbol>
       </svg>
-      <div className="flex items-center justify-between bg-pink-100/50 text-gray-400 py-5 px-4">
-        <div className="flex flex-col items-center hover:cursor-pointer hover:bg-white/70 hover:text-pink-600 hover:rounded-xl transition-all pl-5">
-          <HomeIcon className="w-6 h-6"></HomeIcon>
-          <span className="text-sm">Home</span>
-        </div>
-        <div className="flex flex-col items-center hover:cursor-pointer hover:bg-white/70 hover:text-pink-600 hover:rounded-xl transition-all">
+
+      <div className="flex items-center justify-around bg-white/95 backdrop-blur-md border-t border-pink-100 shadow-lg py-3">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `flex flex-col items-center ${
+              isActive ? "text-pink-600" : "text-gray-500"
+            }`
+          }
+        >
+          <HomeIcon className="w-6 h-6" />
+          <span className="text-xs">Home</span>
+        </NavLink>
+
+        <NavLink
+          to="/CayegoryPage"
+          className={({ isActive }) =>
+            `flex flex-col items-center ${
+              isActive ? "text-pink-600" : "text-gray-500"
+            }`
+          }
+        >
           <svg className="w-6 h-6">
-            <use href="#layoutGrid"></use>
+            <use href="#layoutGrid" />
           </svg>
-          <span className="text-sm">Categories</span>
-        </div>
-        <div className="flex flex-col items-center hover:cursor-pointer hover:bg-white/70 hover:text-pink-600 hover:rounded-xl transition-all">
-          <HeartIcon className="w-6 h-6"></HeartIcon>
-          <span className="text-sm">Favorites</span>
-        </div>
-        <div className="flex flex-col items-center hover:cursor-pointer hover:bg-white/70 hover:text-pink-600 hover:rounded-xl transition-all pr-5">
-          <UserIcon className="w-6 h-6"></UserIcon>
-          <span className="text-sm">Profile</span>
-        </div>
+          <span className="text-xs">Categories</span>
+        </NavLink>
+
+        <NavLink
+          to="/favorites"
+          className={({ isActive }) =>
+            `flex flex-col items-center ${
+              isActive ? "text-pink-600" : "text-gray-500"
+            }`
+          }
+        >
+          <HeartIcon className="w-6 h-6" />
+          <span className="text-xs">Favorites</span>
+        </NavLink>
+
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `flex flex-col items-center ${
+              isActive ? "text-pink-600" : "text-gray-500"
+            }`
+          }
+        >
+          <UserIcon className="w-6 h-6" />
+          <span className="text-xs">Profile</span>
+        </NavLink>
       </div>
     </div>
   );
