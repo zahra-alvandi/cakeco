@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import {
   MagnifyingGlassIcon,
-  ShoppingCartIcon,
+  HeartIcon,
+  CakeIcon,
+  FireIcon,
+  BeakerIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import MobileFooter from "./MobileFooter";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -14,33 +18,33 @@ export default function Home() {
       id: 1,
       title: "Cheesecakes",
       img: "/images/cheesecake.webp",
-      price: "$5.49",
       slug: "cheesecakes",
-      text: "Creamy cheesecake with strawberry topping",
+      items: 4,
+      // icon: CakeIcon,
     },
     {
       id: 2,
       title: "Chocolate Cakes",
       img: "/images/chocolatecake.webp",
-      price: "$4.99",
       slug: "chocolate-cakes",
-      text: "Rich chocolate cake with chocolate ganache",
+      items: 6,
+      icon: CakeIcon,
     },
     {
       id: 3,
       title: "Hot Drinks",
       img: "/images/hotdrink.webp",
-      price: "$3.49",
       slug: "hot-drinks",
-      text: "Smooth espersso with streamed milk",
+      items: 8,
+      icon: FireIcon,
     },
     {
       id: 4,
       title: "Cold Drinks",
       img: "/images/icedrink.webp",
-      price: "$3.49",
       slug: "cold-drinks",
-      text: "Chilled coffee over ice with a smooth finish",
+      items: 5,
+      icon: BeakerIcon,
     },
   ];
 
@@ -49,6 +53,9 @@ export default function Home() {
     "/images/banner2.webp",
     "/images/banner3.png",
   ];
+
+  // const Icon = category.icon;
+  // <Icon className="w-5 h-5 text-pink-600" />;
 
   // auto slide
   useEffect(() => {
@@ -166,48 +173,69 @@ export default function Home() {
           </a>
         </div>
 
-        {/* category */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5 md:mt-10">
           {categories.map((category) => (
             <Link
               key={category.id}
               to={`/category/${category.slug}`}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition overflow-hidden flex flex-col"
+              className="
+        bg-white
+        rounded-2xl
+        shadow-sm
+        overflow-hidden
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:scale-[1.03]
+        hover:shadow-xl
+      "
             >
-              {/* IMAGE */}
-              <div className="aspect-[4/4] w-full overflow-hidden">
+              {/* Image */}
+              <div className="relative h-32 overflow-hidden">
                 <img
                   src={category.img}
                   alt={category.title}
-                  className="w-full h-full object-cover object-center hover:scale-105 transition duration-300"
+                  className="
+            w-full
+            h-full
+            object-cover
+            transition-transform
+            duration-500
+            hover:scale-110
+          "
                 />
+
+                {/* Heart */}
+                <button
+                  onClick={(e) => e.preventDefault()}
+                  className="
+            absolute
+            top-2
+            right-2
+            bg-white/90
+            p-2
+            rounded-full
+            shadow-md
+          "
+                >
+                  <HeartIcon className="w-4 h-4 text-pink-600" />
+                </button>
               </div>
 
-              {/* CONTENT */}
-              <div className="p-2 flex flex-col gap-1">
-                <p className="text-pink-700 font-semibold text-sm">
+              {/* Content */}
+              <div className="p-3">
+                <h4 className="font-semibold text-pink-700">
                   {category.title}
-                </p>
+                </h4>
 
-                <span className="text-[11px] text-gray-600 line-clamp-2">
-                  {category.text}
-                </span>
-
-                <div className="flex items-center justify-between mt-1">
-                  <span className="text-xs font-medium text-gray-800">
-                    {category.price}
-                  </span>
-
-                  <button className="flex items-center gap-1 text-[10px] bg-pink-700 text-white px-2 py-1 rounded-md">
-                    <ShoppingCartIcon className="w-3 h-3" />
-                    Add
-                  </button>
-                </div>
+                <p className="text-sm text-gray-500">{category.items} items</p>
               </div>
             </Link>
           ))}
         </div>
       </div>
+      {/* Mboile footer */}
+      {/* <MobileFooter></MobileFooter> */}
     </div>
   );
 }
