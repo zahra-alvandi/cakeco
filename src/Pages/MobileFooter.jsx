@@ -1,8 +1,4 @@
-import {
-  HomeIcon,
-  HeartIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { HomeIcon, HeartIcon, UserIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
 export default function MobileFooter() {

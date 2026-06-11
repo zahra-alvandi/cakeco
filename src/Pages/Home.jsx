@@ -191,18 +191,11 @@ export default function Home() {
       "
             >
               {/* Image */}
-              <div className="relative h-32 overflow-hidden">
+              <div className="relative aspect-square overflow-hidden">
                 <img
                   src={category.img}
                   alt={category.title}
-                  className="
-            w-full
-            h-full
-            object-cover
-            transition-transform
-            duration-500
-            hover:scale-110
-          "
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
 
                 {/* Heart */}
