@@ -37,12 +37,11 @@ export default function CategoryPage() {
   ];
 
   const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
+    product.title.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
     <div className="container mx-auto px-4 py-6">
-
       {/* Banner */}
       <div
         className="relative h-48 md:h-72 rounded-3xl overflow-hidden bg-cover bg-center"
@@ -66,9 +65,7 @@ export default function CategoryPage() {
       {/* Header */}
       <div className="mt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-pink-700">
-            Cheesecakes
-          </h2>
+          <h2 className="text-2xl font-bold text-pink-700">Cheesecakes</h2>
 
           <p className="text-gray-500 text-sm">
             {filteredProducts.length} Products Available
@@ -99,7 +96,6 @@ export default function CategoryPage() {
 
       {/* Products */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-8">
-
         {filteredProducts.map((product) => (
           <Link
             to={`/product/${product.id}`}
@@ -149,14 +145,10 @@ export default function CategoryPage() {
 
             {/* Content */}
             <div className="p-3">
-              <h3 className="font-semibold text-gray-800">
-                {product.title}
-              </h3>
+              <h3 className="font-semibold text-gray-800">{product.title}</h3>
 
               <div className="flex items-center justify-between mt-3">
-                <span className="font-bold text-pink-700">
-                  {product.price}
-                </span>
+                <span className="font-bold text-pink-700">{product.price}</span>
 
                 <button
                   onClick={(e) => e.preventDefault()}
@@ -179,10 +171,8 @@ export default function CategoryPage() {
                 </button>
               </div>
             </div>
-
           </Link>
         ))}
-
       </div>
     </div>
   );
