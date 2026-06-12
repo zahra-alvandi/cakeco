@@ -15,7 +15,7 @@ export default function ProductPage() {
       id: 2,
       title: "Blueberry Cheesecake",
       price: "$6.49",
-      img: "/images/cheesecake.webp",
+      img: "/images/bluberry.jpg",
       desc: "Rich cheesecake with blueberry topping",
     },
   ];

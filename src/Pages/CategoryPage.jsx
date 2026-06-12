@@ -20,19 +20,19 @@ export default function CategoryPage() {
       id: 2,
       title: "Blueberry Cheesecake",
       price: "$6.49",
-      img: "/images/cheesecake.webp",
+      img: "/images/bluberry.jpg",
     },
     {
       id: 3,
       title: "Classic Cheesecake",
       price: "$4.99",
-      img: "/images/cheesecake.webp",
+      img: "/images/classic.jpg",
     },
     {
       id: 4,
       title: "Chocolate Cheesecake",
       price: "$6.99",
-      img: "/images/cheesecake.webp",
+      img: "/images/Chocolate Heaven.jpg",
     },
   ];
 
@@ -41,14 +41,14 @@ export default function CategoryPage() {
   );
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-4 py-20">
       {/* Banner */}
-      <div
-        className="relative h-48 md:h-72 rounded-3xl overflow-hidden bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/images/cheesecake-banner.jpg')",
-        }}
-      >
+      <div className="relative w-full h-[300px] md:h-[450px] overflow-hidden rounded-2xl">
+        <img
+          src="/images/cheesecakeBanner.jpg"
+          className="w-full h-full object-cover object-center"
+        />
+
         <div className="absolute inset-0 bg-black/40" />
 
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12">
@@ -145,10 +145,14 @@ export default function CategoryPage() {
 
             {/* Content */}
             <div className="p-3">
-              <h3 className="font-semibold text-gray-800">{product.title}</h3>
+              <h3 className="line-clamp-1 font-semibold text-gray-800">
+                {product.title}
+              </h3>
 
               <div className="flex items-center justify-between mt-3">
-                <span className="font-bold text-pink-700">{product.price}</span>
+                <span className="text-sm md:text-xl font-bold text-pink-700">
+                  {product.price}
+                </span>
 
                 <button
                   onClick={(e) => e.preventDefault()}
@@ -159,8 +163,10 @@ export default function CategoryPage() {
                     bg-pink-600
                     hover:bg-pink-700
                     text-white
-                    px-3
-                    py-1.5
+                    px-1.5
+                    py-1
+                    md:px-3
+                    md:py-1.5
                     rounded-lg
                     text-sm
                     transition
