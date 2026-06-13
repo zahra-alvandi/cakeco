@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import {
   ChevronLeftIcon,
   HeartIcon,
@@ -8,7 +9,8 @@ import {
 
 export default function ProductPage() {
   const { id } = useParams();
-
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState(1);
   const products = [
     {
       id: 1,
@@ -85,19 +87,44 @@ export default function ProductPage() {
           <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" />
           <path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
         </symbol>
-        <symbol id="bag" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-handbag-icon lucide-handbag"><path d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"/><path d="M8 11V6a4 4 0 0 1 8 0v5"/></symbol>
+        <symbol
+          id="bag"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-handbag-icon lucide-handbag"
+        >
+          <path d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z" />
+          <path d="M8 11V6a4 4 0 0 1 8 0v5" />
+        </symbol>
       </svg>
       <div className="flex items-center justify-between py-5">
         {/* title and back icon */}
-        <ChevronLeftIcon className="w-6 h-6 text-pink-700"></ChevronLeftIcon>
+        <button onClick={() => navigate(-1)}>
+          <ChevronLeftIcon className="w-6 h-6 text-pink-700 hover:text-pink-800" />
+        </button>
         <span>Cheesecake</span>
         <HeartIcon className="w-6 h-6 text-pink-700"></HeartIcon>
       </div>
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
         {/* Image */}
         <img
           src={product.img}
-          className="rounded-2xl md:w-[50%] object-cover"
+          alt={product.title}
+          className="
+    w-full
+    h-[320px]
+    md:h-[550px]
+    rounded-3xl
+    object-cover
+    shadow-lg
+  "
         />
 
         {/* Info */}
@@ -120,7 +147,7 @@ export default function ProductPage() {
           <p className="text-gray-600 mt-3 text-sm">{product.desc}</p>
 
           {/* about cake */}
-          <div className="flex items-center justify-between">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-6">
             <div className="flex items-center justify-between gap-2 bg-pink-100/50 rounded-xl px-2 py-4">
               <svg className="w-6 h-6 text-pink-600">
                 <use href="#RoseIcon"></use>
@@ -142,27 +169,60 @@ export default function ProductPage() {
           </div>
 
           {/* Quantity */}
+          <div className="mt-6 flex items-center justify-between">
+            <h3 className="font-semibold text-gray-700 mb-3">Quantity</h3>
+
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+                className="
+      w-10 h-10
+      rounded-xl
+      bg-pink-100
+      text-pink-700
+      font-bold
+      hover:bg-pink-200
+      transition
+    "
+              >
+                -
+              </button>
+
+              <span className="text-xl font-semibold w-8 text-center">
+                {quantity}
+              </span>
+
+              <button
+                onClick={() => setQuantity(quantity + 1)}
+                className="
+      w-10 h-10
+      rounded-xl
+      bg-pink-600
+      text-white
+      font-bold
+      hover:bg-pink-700
+      transition
+    "
+              >
+                +
+              </button>
+            </div>
+          </div>
 
           {/* Add to cart */}
           <button
-            className="
-            flex items-center justify-center gap-3 w-full md:w-[50%]
-            mt-6
-            bg-pink-600
-            text-white
-            px-6
-            py-4
-            rounded-xl
-            hover:bg-pink-700
-            transition
-          "
+            className=" bg-pink-600/70 text-white px-4 py-6 rounded-2xl mt-5
+flex items-center justify-center gap-3
+w-full md:w-fit
+min-w-[260px]
+"
           >
             <svg className="w-6 h-6">
               <use href="#bag"></use>
             </svg>
             Add to Cart
             <MinusIcon className="w-5 h-5 rotate-90 text-white"></MinusIcon>
-            <p>{product.price}</p>
+            <p>${(product.price * quantity).toFixed(2)}</p>
           </button>
         </div>
       </div>

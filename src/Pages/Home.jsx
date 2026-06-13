@@ -7,7 +7,7 @@ import {
   BeakerIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import MobileFooter from "./MobileFooter";
+import Features from "./Features";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -227,8 +227,9 @@ export default function Home() {
           ))}
         </div>
       </div>
-      {/* Mboile footer */}
-      {/* <MobileFooter></MobileFooter> */}
+      
+      {/* Features */}
+        <Features />
     </div>
   );
 }
