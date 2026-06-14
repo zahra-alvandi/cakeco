@@ -21,14 +21,14 @@ export default function ProductPage() {
       id: 1,
       title: "Strawberry Cheesecake",
       price: 5.49,
-      img: "/images/cheesecake.webp",
+      img: "/images/cakes/cheesecake.webp",
       desc: "Creamy and smooth cheesecake on a buttery graham cracker crust, topped with sweet strawberry sauce. A timeless favorit!",
     },
     {
       id: 2,
       title: "Blueberry Cheesecake",
       price: 6.49,
-      img: "/images/bluberry.jpg",
+      img: "/images/cakes/bluberry.jpg",
       desc: "Rich cheesecake with blueberry topping",
     },
   ];

@@ -13,46 +13,42 @@ export default function Home() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const categories = [
-    {
-      id: 1,
-      title: "Cheesecakes",
-      img: "/images/cheesecake.webp",
-      slug: "cheesecakes",
-      items: 4,
-      // icon: CakeIcon,
-    },
-    {
-      id: 2,
-      title: "Chocolate Cakes",
-      img: "/images/chocolatecake.webp",
-      slug: "chocolate-cakes",
-      items: 6,
-      icon: CakeIcon,
-    },
-    {
-      id: 3,
-      title: "Hot Drinks",
-      img: "/images/hotdrink.webp",
-      slug: "hot-drinks",
-      items: 8,
-      icon: FireIcon,
-    },
-    {
-      id: 4,
-      title: "Cold Drinks",
-      img: "/images/icedrink.webp",
-      slug: "cold-drinks",
-      items: 5,
-      icon: BeakerIcon,
-    },
-  ];
+const categories = [
+  {
+    id: 1,
+    title: "Cheesecakes",
+    img: "/images/cakes/cheesecake.webp",
+    slug: "cheesecakes",
+    items: 4,
+  },
+  {
+    id: 2,
+    title: "Chocolate Cakes",
+    img: "/images/cakes/chocolatecake.webp",
+    slug: "chocolate-cakes",
+    items: 6,
+  },
+  {
+    id: 3,
+    title: "Hot Drinks",
+    img: "/images/drinks/hotdrink.webp",
+    slug: "hot-drinks",
+    items: 8,
+  },
+  {
+    id: 4,
+    title: "Cold Drinks",
+    img: "/images/drinks/icedrink.webp",
+    slug: "cold-drinks",
+    items: 5,
+  },
+];
 
   const slides = [
-    "/images/mobileBanner.png",
-    "/images/banner2.webp",
-    "/images/banner3.png",
-  ];
+  "/images/banner/mobileBanner.png",
+  "/images/banner/banner2.webp",
+  "/images/banner/banner3.png",
+];
 
   // const Icon = category.icon;
   // <Icon className="w-5 h-5 text-pink-600" />;
