@@ -1,4 +1,8 @@
+import { useCart } from "../../context/CartContext";
+
 export default function CartDrawer({ isOpen, onClose }) {
+  const { cartItems, removeFromCart, increaseQuantity, decreaseQuantity } =
+    useCart();
   return (
     <>
       <div
@@ -22,7 +26,48 @@ export default function CartDrawer({ isOpen, onClose }) {
         <div className="p-5">
           <h2 className="text-xl font-bold mb-4">سبد خرید</h2>
 
-          <p className="text-gray-500">سبد خرید شما خالی است.</p>
+          {cartItems.length === 0 ? (
+            <p className="text-gray-500">سبد خرید شما خالی است.</p>
+          ) : (
+            <div className="space-y-4">
+              {cartItems.map((item) => (
+                <div key={item.id} className="border rounded-xl p-3">
+                  <div className="flex gap-3">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-16 h-16 object-cover rounded-lg"
+                    />
+
+                    <div className="flex-1">
+                      <h4 className="font-medium">{item.title}</h4>
+
+                      <p className="text-pink-600">{item.price}</p>
+
+                      <div className="flex items-center gap-2 mt-2">
+                        <button onClick={() => decreaseQuantity(item.id)}>
+                          -
+                        </button>
+
+                        <span>{item.quantity}</span>
+
+                        <button onClick={() => increaseQuantity(item.id)}>
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => removeFromCart(item.id)}
+                      className="text-red-500"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
 
           <button onClick={onClose} className="mt-6 text-red-500">
             بستن

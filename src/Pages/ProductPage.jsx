@@ -6,23 +6,28 @@ import {
   StarIcon,
   MinusIcon,
 } from "@heroicons/react/24/outline";
+import { useCart } from "../context/CartContext";
 
 export default function ProductPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
+  const handleAddToCart = () => {
+  addToCart(product, quantity);
+};
   const products = [
     {
       id: 1,
       title: "Strawberry Cheesecake",
-      price: "$5.49",
+      price: 5.49,
       img: "/images/cheesecake.webp",
       desc: "Creamy and smooth cheesecake on a buttery graham cracker crust, topped with sweet strawberry sauce. A timeless favorit!",
     },
     {
       id: 2,
       title: "Blueberry Cheesecake",
-      price: "$6.49",
+      price: 6.49,
       img: "/images/bluberry.jpg",
       desc: "Rich cheesecake with blueberry topping",
     },
@@ -107,7 +112,7 @@ export default function ProductPage() {
       <div className="flex items-center justify-between py-5">
         {/* title and back icon */}
         <button onClick={() => navigate(-1)}>
-          <ChevronLeftIcon className="w-6 h-6 text-pink-700 hover:text-pink-800" />
+          <ChevronLeftIcon className="w-6 h-6 hover:cursor-pointer text-pink-700 hover:text-pink-800" />
         </button>
         <span>Cheesecake</span>
         <HeartIcon className="w-6 h-6 text-pink-700"></HeartIcon>
@@ -170,39 +175,21 @@ export default function ProductPage() {
 
           {/* Quantity */}
           <div className="mt-6 flex items-center justify-between">
-            <h3 className="font-semibold text-gray-700 mb-3">Quantity</h3>
+            <p className="font-medium mb-3">Quantity</p>
 
             <div className="flex items-center gap-4">
               <button
-                onClick={() => quantity > 1 && setQuantity(quantity - 1)}
-                className="
-      w-10 h-10
-      rounded-xl
-      bg-pink-100
-      text-pink-700
-      font-bold
-      hover:bg-pink-200
-      transition
-    "
+                onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                className="bg-pink-100 px-4 py-2 rounded-lg"
               >
                 -
               </button>
 
-              <span className="text-xl font-semibold w-8 text-center">
-                {quantity}
-              </span>
+              <span className="font-bold text-lg">{quantity}</span>
 
               <button
-                onClick={() => setQuantity(quantity + 1)}
-                className="
-      w-10 h-10
-      rounded-xl
-      bg-pink-600
-      text-white
-      font-bold
-      hover:bg-pink-700
-      transition
-    "
+                onClick={() => setQuantity((prev) => prev + 1)}
+                className="bg-pink-100 px-4 py-2 rounded-lg"
               >
                 +
               </button>
@@ -211,10 +198,11 @@ export default function ProductPage() {
 
           {/* Add to cart */}
           <button
+            onClick={handleAddToCart}
             className=" bg-pink-600/70 text-white px-4 py-6 rounded-2xl mt-5
 flex items-center justify-center gap-3
 w-full md:w-fit
-min-w-[260px]
+min-w-[260px] hover:cursor-pointer
 "
           >
             <svg className="w-6 h-6">
