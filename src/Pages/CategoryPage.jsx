@@ -30,7 +30,7 @@ export default function CategoryPage() {
 
     "cold-drinks": {
       title: "Cold Drinks",
-      banner: `${import.meta.env.BASE_URL}images/banner/colddrinkBanner.jpg`,
+      banner: `${import.meta.env.BASE_URL}images/banner/icedrinkBanner.jpg`,
     },
   };
   const currentCategory = categoryData[slug];
