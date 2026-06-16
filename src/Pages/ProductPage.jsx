@@ -7,6 +7,7 @@ import {
   MinusIcon,
 } from "@heroicons/react/24/outline";
 import { useCart } from "../context/CartContext";
+import products from "../data/product";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -16,22 +17,6 @@ export default function ProductPage() {
   const handleAddToCart = () => {
     addToCart(product, quantity);
   };
-  const products = [
-    {
-      id: 1,
-      title: "Strawberry Cheesecake",
-      price: 5.49,
-      img: `${import.meta.env.BASE_URL}images/cakes/cheesecake.webp`,
-      desc: "Creamy and smooth cheesecake on a buttery graham cracker crust, topped with sweet strawberry sauce. A timeless favorit!",
-    },
-    {
-      id: 2,
-      title: "Blueberry Cheesecake",
-      price: 6.49,
-      img: `${import.meta.env.BASE_URL}images/cakes/bluberry.jpg`,
-      desc: "Rich cheesecake with blueberry topping",
-    },
-  ];
 
   const product = products.find((p) => p.id === Number(id));
 

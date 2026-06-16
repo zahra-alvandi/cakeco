@@ -6,84 +6,37 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import products from "../data/product";
 
 export default function CategoryPage() {
   const { slug } = useParams();
   const [search, setSearch] = useState("");
 
   const categoryData = {
-    cheesecakes: {
+    "cheesecakes": {
       title: "Cheesecakes",
       banner: `${import.meta.env.BASE_URL}images/banner/cheesecakeBanner.jpg`,
-      products: [
-        {
-          id: 1,
-          title: "Strawberry Cheesecake",
-          price: "$5.49",
-          img: `${import.meta.env.BASE_URL}images/cakes/cheesecake.webp`,
-        },
-        {
-          id: 2,
-          title: "Blueberry Cheesecake",
-          price: "$6.49",
-          img: `${import.meta.env.BASE_URL}images/cakes/bluberry.jpg`,
-        },
-        {
-          id: 3,
-          title: "Classic Cheesecake",
-          price: "$4.99",
-          img: `${import.meta.env.BASE_URL}images/cakes/classic.jpg`,
-        },
-        {
-          id: 4,
-          title: "Chocolate Cheesecake",
-          price: "$6.99",
-          img: `${import.meta.env.BASE_URL}images/cakes/chocolatecake.webp`,
-        },
-      ],
     },
 
     "chocolate-cakes": {
       title: "Chocolate Cakes",
-      banner: `${import.meta.env.BASE_URL}images/banner/chocolateBanner.jpg`,
-      products: [
-        {
-          id: 5,
-          title: "Dark Chocolate Cake",
-          price: "$7.99",
-          img: `${import.meta.env.BASE_URL}images/cakes/chocolatecake.webp`,
-        },
-      ],
+      banner: `${import.meta.env.BASE_URL}images/banner/chocolatecakeBanner.jpg`,
     },
 
     "hot-drinks": {
       title: "Hot Drinks",
-      banner: `${import.meta.env.BASE_URL}images/banner/htodrinkbanner.webp`,
-      products: [
-        {
-          id: 6,
-          title: "Cappuccino",
-          price: "$3.99",
-          img: `${import.meta.env.BASE_URL}images/drinks/cappuchino.webp`,
-        },
-      ],
+      banner: `${import.meta.env.BASE_URL}images/banner/hotdrinkBanner.jpg`,
     },
 
     "cold-drinks": {
       title: "Cold Drinks",
-      banner: `${import.meta.env.BASE_URL}images/banner/colddrinkBanner.webp`,
-      products: [
-        {
-          id: 7,
-          title: "Iced Latte",
-          price: "$4.49",
-          img: `${import.meta.env.BASE_URL}images/drinks/icedlatte.webp`,
-        },
-      ],
+      banner: `${import.meta.env.BASE_URL}images/banner/colddrinkBanner.jpg`,
     },
   };
-
   const currentCategory = categoryData[slug];
+  const categoryProducts = products.filter(
+    (product) => product.category === slug,
+  );
 
   if (!currentCategory) {
     return (
@@ -93,7 +46,7 @@ export default function CategoryPage() {
     );
   }
 
-  const filteredProducts = currentCategory.products.filter((product) =>
+  const filteredProducts = categoryProducts.filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase()),
   );
 
