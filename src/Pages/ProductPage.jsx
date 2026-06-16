@@ -14,21 +14,21 @@ export default function ProductPage() {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const handleAddToCart = () => {
-  addToCart(product, quantity);
-};
+    addToCart(product, quantity);
+  };
   const products = [
     {
       id: 1,
       title: "Strawberry Cheesecake",
       price: 5.49,
-      img: "/images/cakes/cheesecake.webp",
+      img: `${import.meta.env.BASE_URL}images/cakes/cheesecake.webp`,
       desc: "Creamy and smooth cheesecake on a buttery graham cracker crust, topped with sweet strawberry sauce. A timeless favorit!",
     },
     {
       id: 2,
       title: "Blueberry Cheesecake",
       price: 6.49,
-      img: "/images/cakes/bluberry.jpg",
+      img: `${import.meta.env.BASE_URL}images/cakes/bluberry.jpg`,
       desc: "Rich cheesecake with blueberry topping",
     },
   ];

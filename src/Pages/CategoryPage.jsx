@@ -5,6 +5,7 @@ import {
   HeartIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 export default function CategoryPage() {
   const { slug } = useParams();
@@ -13,70 +14,70 @@ export default function CategoryPage() {
   const categoryData = {
     cheesecakes: {
       title: "Cheesecakes",
-      banner: "/images/banner/cheesecakeBanner.jpg",
+      banner: `${import.meta.env.BASE_URL}images/banner/cheesecakeBanner.jpg`,
       products: [
         {
           id: 1,
           title: "Strawberry Cheesecake",
           price: "$5.49",
-          img: "/images/cakes/cheesecake.webp",
+          img: `${import.meta.env.BASE_URL}images/cakes/cheesecake.webp`,
         },
         {
           id: 2,
           title: "Blueberry Cheesecake",
           price: "$6.49",
-          img: "/images/cakes/bluberry.jpg",
+          img: `${import.meta.env.BASE_URL}images/cakes/bluberry.jpg`,
         },
         {
           id: 3,
           title: "Classic Cheesecake",
           price: "$4.99",
-          img: "/images/cakes/classic.jpg",
+          img: `${import.meta.env.BASE_URL}images/cakes/classic.jpg`,
         },
         {
           id: 4,
           title: "Chocolate Cheesecake",
           price: "$6.99",
-          img: "/images/cakes/chocolate.webp",
+          img: `${import.meta.env.BASE_URL}images/cakes/chocolatecake.webp`,
         },
       ],
     },
 
     "chocolate-cakes": {
       title: "Chocolate Cakes",
-      banner: "/images/banner/chocolateBanner.jpg",
+      banner: `${import.meta.env.BASE_URL}images/banner/chocolateBanner.jpg`,
       products: [
         {
           id: 5,
           title: "Dark Chocolate Cake",
           price: "$7.99",
-          img: "/images/cakes/chocolatecake.webp",
+          img: `${import.meta.env.BASE_URL}images/cakes/chocolatecake.webp`,
         },
       ],
     },
 
     "hot-drinks": {
       title: "Hot Drinks",
-      banner: "/images/banner/hotdrinkBanner.jpg",
+      banner: `${import.meta.env.BASE_URL}images/banner/htodrinkbanner.webp`,
       products: [
         {
           id: 6,
           title: "Cappuccino",
           price: "$3.99",
-          img: "/images/drinks/hotdrink.webp",
+          img: `${import.meta.env.BASE_URL}images/drinks/cappuchino.webp`,
         },
       ],
     },
 
     "cold-drinks": {
       title: "Cold Drinks",
-      banner: "/images/banner/colddrinkBanner.jpg",
+      banner: `${import.meta.env.BASE_URL}images/banner/colddrinkBanner.webp`,
       products: [
         {
           id: 7,
           title: "Iced Latte",
           price: "$4.49",
-          img: "/images/drinks/icedrink.webp",
+          img: `${import.meta.env.BASE_URL}images/drinks/icedlatte.webp`,
         },
       ],
     },
@@ -143,9 +144,10 @@ export default function CategoryPage() {
       {/* Products */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-8">
         {filteredProducts.map((product) => (
-          <div
+          <Link
+            to={`/product/${product.id}`}
             key={product.id}
-            className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block"
           >
             <div className="relative h-36 md:h-52 overflow-hidden">
               <img
@@ -170,13 +172,16 @@ export default function CategoryPage() {
               <div className="flex items-center justify-between mt-3">
                 <span className="font-bold text-pink-700">{product.price}</span>
 
-                <button className="flex items-center gap-1 bg-pink-600 hover:bg-pink-700 text-white px-3 py-1.5 rounded-lg text-sm transition">
+                <button
+                  onClick={(e) => e.preventDefault()}
+                  className="flex items-center gap-1 bg-pink-600 hover:bg-pink-700 text-white px-3 py-1.5 rounded-lg text-sm transition"
+                >
                   <ShoppingCartIcon className="w-4 h-4" />
                   Add
                 </button>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

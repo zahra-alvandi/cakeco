@@ -62,7 +62,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src="/images/logo.png" alt="Logo" className="w-10 h-10" />
+          <img src="./images/logo.png" alt="Logo" className="w-10 h-10" />
 
           <div className="flex flex-col items-start">
             <span
@@ -102,9 +102,9 @@ export default function Navbar() {
 
           {/* Cart */}
           <button
-  className="relative text-pink-700 hover:text-pink-800 transition-colors"
-  onClick={() => setIsCartOpen(true)}
->
+            className="relative text-pink-700 hover:text-pink-800 transition-colors"
+            onClick={() => setIsCartOpen(true)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -120,8 +120,8 @@ export default function Navbar() {
               />
             </svg>
             {cartCount > 0 && (
-  <span
-    className="
+              <span
+                className="
       absolute
       -top-2
       -right-2
@@ -135,10 +135,10 @@ export default function Navbar() {
       items-center
       justify-center
     "
-  >
-    {cartCount}
-  </span>
-)}
+              >
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
       </nav>
