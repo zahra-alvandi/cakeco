@@ -57,7 +57,7 @@ export default function CategoryPage() {
         <img
           src={currentCategory.banner}
           className="w-full h-full object-cover object-center"
-          alt="banner"
+          alt="banner" loading="lazy"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12">
@@ -106,7 +106,7 @@ export default function CategoryPage() {
               <img
                 src={product.img}
                 alt={product.title}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy"
               />
 
               <button

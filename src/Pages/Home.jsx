@@ -191,7 +191,7 @@ export default function Home() {
                 <img
                   src={category.img}
                   alt={category.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy"
                 />
 
                 {/* Heart */}

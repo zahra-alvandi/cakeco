@@ -115,6 +115,7 @@ export default function ProductPage() {
     object-cover
     shadow-lg
   "
+  loading="lazy"
         />
 
         {/* Info */}

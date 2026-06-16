@@ -37,6 +37,7 @@ export default function CartDrawer({ isOpen, onClose }) {
                       src={item.img}
                       alt={item.title}
                       className="w-16 h-16 object-cover rounded-lg"
+                      loading="lazy"
                     />
 
                     <div className="flex-1">
