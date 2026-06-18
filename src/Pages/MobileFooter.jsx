@@ -36,7 +36,7 @@ export default function MobileFooter() {
         </NavLink>
 
         <NavLink
-          to="/CayegoryPage"
+          to="/cakes"
           className={({ isActive }) =>
             `flex flex-col items-center ${
               isActive ? "text-pink-600" : "text-gray-500"
@@ -46,7 +46,7 @@ export default function MobileFooter() {
           <svg className="w-6 h-6">
             <use href="#layoutGrid" />
           </svg>
-          <span className="text-xs">Categories</span>
+          <span className="text-xs">Cake</span>
         </NavLink>
 
         <NavLink

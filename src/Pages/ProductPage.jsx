@@ -7,7 +7,7 @@ import {
   MinusIcon,
 } from "@heroicons/react/24/outline";
 import { useCart } from "../context/CartContext";
-import products from "../data/product";
+import products from "../data/products";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -115,7 +115,7 @@ export default function ProductPage() {
     object-cover
     shadow-lg
   "
-  loading="lazy"
+          loading="lazy"
         />
 
         {/* Info */}

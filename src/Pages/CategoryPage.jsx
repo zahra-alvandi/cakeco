@@ -6,14 +6,14 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import products from "../data/product";
+import products from "../data/products";
 
 export default function CategoryPage() {
   const { slug } = useParams();
   const [search, setSearch] = useState("");
 
   const categoryData = {
-    "cheesecakes": {
+    cheesecakes: {
       title: "Cheesecakes",
       banner: `${import.meta.env.BASE_URL}images/banner/cheesecakeBanner.jpg`,
     },
@@ -46,9 +46,11 @@ export default function CategoryPage() {
     );
   }
 
-  const filteredProducts = categoryProducts.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase()),
-  );
+  const filteredProducts = products
+    .filter((product) => product.category === slug)
+    .filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase()),
+    );
 
   return (
     <div className="container mx-auto px-4 py-20">
@@ -57,7 +59,8 @@ export default function CategoryPage() {
         <img
           src={currentCategory.banner}
           className="w-full h-full object-cover object-center"
-          alt="banner" loading="lazy"
+          alt="banner"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12">
@@ -106,7 +109,8 @@ export default function CategoryPage() {
               <img
                 src={product.img}
                 alt={product.title}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy"
+                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                loading="lazy"
               />
 
               <button
