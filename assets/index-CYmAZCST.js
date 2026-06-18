@@ -36,7 +36,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
           transition-transform duration-500
           ease-[cubic-bezier(0.32,0.72,0,1)]
           ${e?`translate-x-0`:`-translate-x-full`}
-        `,children:(0,w.jsxs)(`div`,{className:`p-5`,children:[(0,w.jsx)(`button`,{className:`\r
+        `,children:(0,w.jsxs)(`div`,{className:`p-5`,children:[(0,w.jsx)(Hn,{to:`/login`,children:(0,w.jsx)(`button`,{className:`\r
               w-full mb-8\r
               bg-pink-500\r
               text-white\r
@@ -44,7 +44,7 @@ Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}
               rounded-lg\r
               hover:bg-pink-600\r
               transition-colors\r
-            `,children:`Login / Register`}),(0,w.jsx)(`ul`,{className:`space-y-5`,children:Dp.map(e=>(0,w.jsx)(`li`,{children:(0,w.jsx)(Un,{to:e.path,onClick:t,className:({isActive:e})=>e?`text-pink-500 font-medium`:`hover:text-pink-500`,children:e.name})},e.path))})]})})]})}function Ap({isOpen:e,onClose:t}){let{cartItems:n,removeFromCart:r,increaseQuantity:i,decreaseQuantity:a}=ne();return(0,w.jsxs)(w.Fragment,{children:[(0,w.jsx)(`div`,{onClick:t,className:`
+            `,children:`Login / Register`})}),(0,w.jsx)(`ul`,{className:`space-y-5`,children:Dp.map(e=>(0,w.jsx)(`li`,{children:(0,w.jsx)(Un,{to:e.path,onClick:t,className:({isActive:e})=>e?`text-pink-500 font-medium`:`hover:text-pink-500`,children:e.name})},e.path))})]})})]})}function Ap({isOpen:e,onClose:t}){let{cartItems:n,removeFromCart:r,increaseQuantity:i,decreaseQuantity:a}=ne();return(0,w.jsxs)(w.Fragment,{children:[(0,w.jsx)(`div`,{onClick:t,className:`
           fixed inset-0 bg-black/40 z-40
           transition-opacity duration-300
           ${e?`opacity-100 visible`:`opacity-0 invisible`}
