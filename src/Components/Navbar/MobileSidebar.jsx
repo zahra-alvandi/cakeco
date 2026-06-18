@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { navLinks } from "./navLinks";
+import { Link } from "react-router-dom";
 
 export default function MobileSidebar({ isOpen, onClose }) {
   return (
@@ -24,9 +25,9 @@ export default function MobileSidebar({ isOpen, onClose }) {
       >
         <div className="p-5">
           {/* Login */}
-
-          <button
-            className="
+          <Link to="/login">
+            <button
+              className="
               w-full mb-8
               bg-pink-500
               text-white
@@ -35,9 +36,10 @@ export default function MobileSidebar({ isOpen, onClose }) {
               hover:bg-pink-600
               transition-colors
             "
-          >
-            Login / Register
-          </button>
+            >
+              Login / Register
+            </button>
+          </Link>
 
           <ul className="space-y-5">
             {navLinks.map((link) => (
