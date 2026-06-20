@@ -42,11 +42,46 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-        <Route path="/login" element={<PageWrapper><Login /></PageWrapper>} />
-        <Route path="/cakes" element={<PageWrapper><Cake /></PageWrapper>} />
-        <Route path="/category/:slug" element={<PageWrapper><CategoryPage /></PageWrapper>} />
-        <Route path="/product/:id" element={<PageWrapper><ProductPage /></PageWrapper>} />
+        <Route
+          path="/"
+          element={
+            <PageWrapper>
+              <Home />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PageWrapper>
+              <Login />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/cakes"
+          element={
+            <PageWrapper>
+              <Cake />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/category/:slug"
+          element={
+            <PageWrapper>
+              <CategoryPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={
+            <PageWrapper>
+              <ProductPage />
+            </PageWrapper>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
