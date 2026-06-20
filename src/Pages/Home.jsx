@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  MagnifyingGlassIcon,
-  HeartIcon,
-  CakeIcon,
-  FireIcon,
-  BeakerIcon,
-} from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon, HeartIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import Features from "./Features";
 
@@ -44,6 +38,27 @@ export default function Home() {
     },
   ];
 
+  const popularProducts = [
+    {
+      id: 1,
+      title: "Strawberry Cheesecake",
+      price: "$5.49",
+      img: "./images/cakes/cheesecake.webp",
+    },
+    {
+      id: 2,
+      title: "Chocolate Cake",
+      price: "$6.99",
+      img: "./images/cakes/chocolatecake.webp",
+    },
+    {
+      id: 6,
+      title: "Cappuccino",
+      price: "$3.99",
+      img: "./images/drinks/hotdrink.webp",
+    },
+  ];
+
   const slides = [
     "./images/banner/mobileBanner.png",
     "./images/banner/banner2.webp",
@@ -66,16 +81,21 @@ export default function Home() {
 
   return (
     <div className="container mx-auto px-4 my-4 pb-20 md:pb-0">
-      {/* SEARCH */}
-      <div className="flex items-center justify-between rounded-xl px-3 py-3 bg-pink-100/70">
-        <input
-          type="search"
-          placeholder="Search cakes, drinks..."
-          className="w-full outline-none bg-transparent"
-        />
-        <MagnifyingGlassIcon className="w-5 h-5 text-pink-500" />
-      </div>
+      {/* welcome */}
+      <div className="mt-12 text-center max-w-3xl mx-auto">
+        <h2
+          className="text-3xl text-pink-700 mb-3"
+          style={{ fontFamily: "pacifico" }}
+        >
+          Welcome to CakeCo
+        </h2>
 
+        <p className="text-gray-600 leading-8">
+          Freshly baked cakes, cheesecakes and handcrafted drinks made with
+          premium ingredients. Every order is prepared with care to make your
+          day a little sweeter.
+        </p>
+      </div>
       {/* SLIDER */}
       <div
         className="relative mt-6 rounded-2xl overflow-hidden h-56 md:h-[420px] lg:h-[520px]"
@@ -97,9 +117,12 @@ export default function Home() {
               Delicious cakes & drinks for every mood.
             </span>
           </div>
-          <button className="bg-pink-700 text-white outline-none border-none rounded-md p-1 text-[10px] md:p-2 md:text-sm">
-            Shop now
-          </button>
+          <Link
+            to="/cakes"
+            className="inline-block mt-3 bg-pink-700 text-white rounded-lg px-4 py-2 text-sm md:text-base hover:bg-pink-800 transition"
+          >
+            Shop Now
+          </Link>
         </div>
 
         {/* TRACK */}
@@ -154,6 +177,43 @@ export default function Home() {
         </button>
       </div>
 
+      {/* Featured Product */}
+      <div className="mt-12">
+        <div className="bg-gradient-to-r from-pink-600 to-pink-500 rounded-3xl overflow-hidden">
+          <div className="grid md:grid-cols-2 items-stretch">
+            <div className="p-8 md:p-12 text-white">
+              <span className="bg-white/20 px-3 py-1 rounded-full text-sm">
+                Today's Special
+              </span>
+
+              <h2 className="text-3xl md:text-4xl font-bold mt-4">
+                Strawberry Cheesecake
+              </h2>
+
+              <p className="mt-4 text-pink-100 max-w-md">
+                Rich creamy cheesecake topped with fresh strawberries and
+                handcrafted sweet sauce.
+              </p>
+
+              <Link
+                to="/product/1"
+                className="inline-block mt-6 bg-white text-pink-700 px-5 py-3 rounded-xl font-semibold hover:scale-105 transition"
+              >
+                View Details
+              </Link>
+            </div>
+
+            <div className="relative h-64 md:h-auto">
+              <img
+                src="./images/cakes/cheesecake.webp"
+                alt="featured cake"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Shop by category */}
       <div className="mt-10">
         <div className="flex items-center justify-between mb-4">
@@ -164,12 +224,12 @@ export default function Home() {
             Shop by category
           </h3>
 
-          <a href="#" className="text-pink-600 hover:text-pink-700">
+          <Link to="/cakes" className="text-pink-600 hover:text-pink-700">
             View all
-          </a>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-5 md:mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
             <Link
               key={category.id}
@@ -191,7 +251,8 @@ export default function Home() {
                 <img
                   src={category.img}
                   alt={category.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  loading="lazy"
                 />
 
                 {/* Heart */}
@@ -216,14 +277,98 @@ export default function Home() {
                 <h4 className="font-semibold text-pink-700">
                   {category.title}
                 </h4>
-
-                <p className="text-sm text-gray-500">{category.items} items</p>
               </div>
             </Link>
           ))}
         </div>
       </div>
 
+      {/* CTA */}
+      <div className="mt-16 bg-pink-50 rounded-3xl p-8 text-center">
+        <h3 className="text-2xl font-bold text-pink-700">
+          Ready for something sweet?
+        </h3>
+
+        <p className="text-gray-600 mt-3">
+          Explore our cakes and drinks collection and find your favorite treat.
+        </p>
+
+        <Link
+          to="/cakes"
+          className="inline-block mt-5 bg-pink-600 text-white px-6 py-3 rounded-xl hover:bg-pink-700 transition"
+        >
+          Explore Menu
+        </Link>
+      </div>
+
+      {/* Customer Reviews */}
+      <div className="mt-16">
+        <h3
+          className="text-2xl text-pink-700 text-center mb-8"
+          style={{ fontFamily: "pacifico" }}
+        >
+          What Our Customers Say
+        </h3>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              name: "Sarah",
+              text: "Amazing cakes and very fresh ingredients. Highly recommended!",
+            },
+            {
+              name: "Emily",
+              text: "Beautiful presentation and the drinks were delicious.",
+            },
+            {
+              name: "Michael",
+              text: "The cheesecake was one of the best I've ever tasted.",
+            },
+          ].map((review, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition"
+            >
+              <p className="text-yellow-500 text-lg">★★★★★</p>
+
+              <p className="text-gray-600 mt-3">{review.text}</p>
+
+              <p className="mt-4 font-semibold text-pink-700">{review.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Newsletter */}
+      <div className="mt-16 bg-pink-50 rounded-3xl p-8 text-center">
+        <h3 className="text-2xl font-bold text-pink-700">Get Sweet Updates</h3>
+
+        <p className="text-gray-600 mt-3">
+          Subscribe to receive updates about new cakes and special offers.
+        </p>
+
+        <div className="max-w-md mx-auto mt-6 flex flex-col md:flex-row gap-3">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="flex-1 border border-pink-200 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+          />
+
+          <button
+            className="
+      bg-pink-600
+      text-white
+      px-5
+      py-3
+      rounded-xl
+      hover:bg-pink-700
+      transition
+    "
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
       {/* Features */}
       <Features />
     </div>
