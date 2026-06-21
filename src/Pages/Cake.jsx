@@ -30,7 +30,7 @@ export default function Cake() {
       {/* HERO */}
       <div className="relative h-[250px] md:h-[420px] rounded-3xl overflow-hidden">
         <img
-          src="/images/banner/banner2.webp"
+          src="./images/banner/chocolatecakeBanner.jpg"
           alt="Cake Collection"
           className="w-full h-full object-cover"
         />
