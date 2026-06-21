@@ -25,10 +25,24 @@ export default function Footer() {
             <h3 className="font-semibold text-pink-700 mb-3">Quick Links</h3>
 
             <div className="flex flex-col gap-2 text-gray-600">
-              <Link className="hover:text-pink-600 transition-all" to="/">Home</Link>
-              <Link className="hover:text-pink-600 transition-all" to="/categories">Categories</Link>
-              <Link className="hover:text-pink-600 transition-all" to="/favorites">Favorites</Link>
-              <Link className="hover:text-pink-600 transition-all" to="/login">Login</Link>
+              <Link className="hover:text-pink-600 transition-all" to="/">
+                Home
+              </Link>
+              <Link
+                className="hover:text-pink-600 transition-all"
+                to="/categories"
+              >
+                Categories
+              </Link>
+              <Link
+                className="hover:text-pink-600 transition-all"
+                to="/favorites"
+              >
+                Favorites
+              </Link>
+              <Link className="hover:text-pink-600 transition-all" to="/login">
+                Login
+              </Link>
             </div>
           </div>
 
@@ -37,10 +51,30 @@ export default function Footer() {
             <h3 className="font-semibold text-pink-700 mb-3">Categories</h3>
 
             <div className="flex flex-col gap-2 text-gray-600">
-              <Link className="hover:text-pink-600 transition-all" to="/category/cheesecakes">Cheesecakes</Link>
-              <Link className="hover:text-pink-600 transition-all" to="/category/chocolate-cakes">Chocolate Cakes</Link>
-              <Link className="hover:text-pink-600 transition-all" to="/category/hot-drinks">Hot Drinks</Link>
-              <Link className="hover:text-pink-600 transition-all" to="/category/cold-drinks">Cold Drinks</Link>
+              <Link
+                className="hover:text-pink-600 transition-all"
+                to="/category/cheesecakes"
+              >
+                Cheesecakes
+              </Link>
+              <Link
+                className="hover:text-pink-600 transition-all"
+                to="/category/chocolate-cakes"
+              >
+                Chocolate Cakes
+              </Link>
+              <Link
+                className="hover:text-pink-600 transition-all"
+                to="/category/hot-drinks"
+              >
+                Hot Drinks
+              </Link>
+              <Link
+                className="hover:text-pink-600 transition-all"
+                to="/category/cold-drinks"
+              >
+                Cold Drinks
+              </Link>
             </div>
           </div>
 

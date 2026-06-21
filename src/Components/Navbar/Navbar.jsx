@@ -62,7 +62,12 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src="./images/logo.png" alt="Logo" className="w-10 h-10" loading="lazy" />
+          <img
+            src="./images/logo.png"
+            alt="Logo"
+            className="w-10 h-10"
+            loading="lazy"
+          />
 
           <div className="flex flex-col items-start">
             <span

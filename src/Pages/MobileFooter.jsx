@@ -1,4 +1,4 @@
-import { HomeIcon, HeartIcon, UserIcon } from "@heroicons/react/24/outline";
+import { HomeIcon, UserIcon,BuildingStorefrontIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
 export default function MobileFooter() {
@@ -50,15 +50,15 @@ export default function MobileFooter() {
         </NavLink>
 
         <NavLink
-          to="/favorites"
+          to="/about"
           className={({ isActive }) =>
             `flex flex-col items-center ${
               isActive ? "text-pink-600" : "text-gray-500"
             }`
           }
         >
-          <HeartIcon className="w-6 h-6" />
-          <span className="text-xs">Favorites</span>
+          <BuildingStorefrontIcon className="w-6 h-6" />
+          <span className="text-xs">About</span>
         </NavLink>
 
         <NavLink

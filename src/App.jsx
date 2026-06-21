@@ -7,10 +7,11 @@ import Login from "./Pages/Login";
 import Cake from "./Pages/Cake";
 import CategoryPage from "./Pages/CategoryPage";
 import ProductPage from "./Pages/ProductPage";
+import About from "./Pages/About";
+import Profile from "./Pages/Profile";
 import MobileFooter from "./Pages/MobileFooter";
 import Footer from "./Pages/Footer";
 
-// تنظیمات انیمیشن - هرجور دلت خواست تغییرش بده
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -55,6 +56,22 @@ function AnimatedRoutes() {
           element={
             <PageWrapper>
               <Login />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <PageWrapper>
+              <About />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PageWrapper>
+              <Profile />
             </PageWrapper>
           }
         />
